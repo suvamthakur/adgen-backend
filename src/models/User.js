@@ -33,13 +33,13 @@ const userSchema = new mongoose.Schema(
     },
 
     // Monthly
+    generationCount: {
+      type: Number,
+      default: 0,
+    },
     generationLimit: {
       type: Number,
       default: 3,
-    },
-    totalGeneration: {
-      type: Number,
-      default: 0,
     },
   },
   { timestamps: true }

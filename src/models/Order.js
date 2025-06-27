@@ -51,9 +51,16 @@ const orderSchema = new mongoose.Schema(
         required: true,
       },
     ],
-
+    retryCount: {
+      type: Number,
+      default: 0,
+    },
+    retryLimit: {
+      type: Number,
+      default: 2,
+    },
     // Heygen output
-    videoId: {
+    video_id: {
       type: String,
     },
     thumbnail_url: {

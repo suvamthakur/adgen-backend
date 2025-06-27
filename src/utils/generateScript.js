@@ -9,17 +9,19 @@ async function generateScript(
   emotion,
   scriptLanguage
 ) {
-  const systemPrompt = `You are an AI scriptwriter specializing in creating compelling User-Generated Content (UGC) video advertisements for various products. Your primary goal is to craft professional, multi-part ad scripts based on provided specifications. Your output must be plain text, clearly dividing the script into the requested number of parts. You will receive specific parameters for each script generation request, and you must strictly adhere to the total character limit provided.`;
+  const systemPrompt = `You are an experienced professional scriptwriter specializing in creating compelling User-Generated Content (UGC) video advertisements for various products. Your primary goal is to craft professional, multi-part ad scripts based on provided specifications. Your output must be plain text, clearly dividing the script into the requested number of parts. You will receive specific parameters for each script generation request, and you must strictly adhere to the total character limit provided.`;
   const userPrompt = `
     Generate a UGC video ad script for a product. The script should maintain a professional tone and be divided into ${noOfProducts} distinct parts, suitable for sequential presentation in a video.
     Write a advertisement script for product: ${productName}.
     #Product Details: ${description}
     #Requirements:
         - Maintain a ${emotion} tone throughout the script
-        - Script should be in ${scriptLanguage}
+        - Script should be in ${scriptLanguage} language
+        - STRICTLY Use the correct **native script** for the selected language. Do **not** transliterate into English letters if the language is not English.
+        - The script should be divided into ${noOfProducts} distinct parts
         - Focus on highlighting key benefits and unique selling points
         - Include a clear call to action
-        - Ensure the script is engaging and memorable
+        - Make the script highly engaging and **catchy**
         - Keep the character's length to approximately ${scriptLength}
         **Please write a professional, persuasive script that will resonate with the target audience.**
     #Output Format:
